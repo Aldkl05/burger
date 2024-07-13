@@ -1,0 +1,109 @@
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:contentDescription="@string/logo"
+            android:id="@+id/burger1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/burger"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/bungee_inline"
+            android:text="@string/welcome"
+
+            android:textSize="16sp"
+
+
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:contentDescription="@string/logo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/burger"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingVertical="9dp"
+        android:layout_marginVertical="10dp"
+        android:background="@color/dark_brown"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/burgerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/select_burger"
+            android:layout_marginHorizontal="9dp"
+            android:fontFamily="@font/bungee_inline"
+            />
+
+        <RadioGroup
+            android:orientation="horizontal"
+            android:layout_below="@+id/burgerTitle"
+
+            android:layout_width="wrap_content"
+           android:paddingHorizontal="10dp"
+
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:buttonTint="@color/white"
+
+                android:id="@+id/nonVegRadioBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/non_veg"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bungee_inline"
+                android:layout_marginHorizontal="10dp"
+                android:theme="@style/MyRadioButton"
+                />
+
+            <RadioButton
+                android:buttonTint="@color/white"
+
+                android:id="@+id/VegRadioBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/veg"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bungee_inline"
+                android:theme="@style/MyRadioButton"
+                android:layout_marginHorizontal="10dp"
+                />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/burgerFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
