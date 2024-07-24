@@ -2,6 +2,7 @@ package edu.pims.burgerapp;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -20,7 +21,7 @@ public class NonVegBurgerFragment extends Fragment {
     public NonVegBurgerFragment() {
         // Required empty public constructor
     }
-
+//initial commit
 
     LinearLayout saladLayout, baconLayout, cheeseLayout, meatLayout;
 
@@ -42,7 +43,7 @@ public class NonVegBurgerFragment extends Fragment {
     int baconCount = 0;
     int cheeseCount = 0;
     int meatCount = 0;
-
+    AlertDialog alert;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -149,12 +150,69 @@ public class NonVegBurgerFragment extends Fragment {
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    //TODO
+                //TODO
+
+                showDialog();
+                //we will do custom dialog.
+
             }
         });
 
         return view;
     }
+
+
+    public void showDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Confirm Order");
+        builder.setCancelable(false);
+
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view =  inflater.inflate(R.layout.non_veg_order_dialog, null);
+        builder.setView(view);
+
+        TextView saladCountText = view.findViewById(R.id.saladQuantity);
+
+        TextView baconCountText = view.findViewById(R.id.baconQuantity);
+        TextView cheeseCountText = view.findViewById(R.id.cheeseQuantity);
+        TextView meatCountText = view.findViewById(R.id.meatQuantity);
+
+        Button confirmBtn = view.findViewById(R.id.Confirm);
+
+        saladCountText.setText(saladCount+"");
+        baconCountText.setText(baconCount+"");
+        cheeseCountText.setText(cheeseCount+"");
+        meatCountText.setText(meatCount+"");
+
+        TextView totalPriceTextSalad = view.findViewById(R.id.saladTotalPrice);
+        totalPriceTextSalad.setText(saladCount*saladPrice +"");
+        TextView totalPriceTextBacon = view.findViewById(R.id.baconTotalPrice);
+
+
+
+
+        totalPriceTextBacon.setText(baconCount*baconPrice +"");
+
+
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //dialog.dismiss();
+                alert.dismiss();
+
+            }
+        });
+
+
+        alert = builder.create();
+
+        alert.show();
+
+
+
+    }
+
+
 
     void changeSalad() {
 

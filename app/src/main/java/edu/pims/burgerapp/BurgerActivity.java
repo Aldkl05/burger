@@ -13,6 +13,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class BurgerActivity extends AppCompatActivity {
 
@@ -34,6 +35,13 @@ public class BurgerActivity extends AppCompatActivity {
         nonVegButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FragmentManager fragmentManager=getSupportFragmentManager();
+                NonVegBurgerFragment nonVegBurgerFragment=new NonVegBurgerFragment();
+
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.burgerFrame,nonVegBurgerFragment);
+               // transaction.addToBackStack(null);
+                transaction.commit();
 
             }
         });
@@ -42,6 +50,13 @@ public class BurgerActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                FragmentManager fragmentManager=getSupportFragmentManager();
+                VegBurgerFragment VegBurgerFragment=new VegBurgerFragment();
+
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.burgerFrame,VegBurgerFragment);
+                //transaction.addToBackStack(null);
+                transaction.commit();
 
             }
         });
